@@ -14,6 +14,7 @@ Planning Poker: a web application for agile estimation. Team members join a shar
 - The [API contract](docs/api-contract.md) is fixed. Integrate with it; do not change it.
 - Features, UI and behaviour are defined by the project backlog (epics, stories, acceptance criteria), which is the source of truth.
 - Any frontend tech stack is allowed, provided it builds to a static site deployable to GitHub Pages.
+- Keep this file current: when a change affects the project description, architecture, guidelines, tech stack or folder structure, update AGENTS.md in the same change.
 
 ## Structure
 
