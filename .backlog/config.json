@@ -5,7 +5,7 @@
   "provider": {
     "type": "github-projects",
     "organisation": "AI-Assisted-Coding-Training",
-    "projectNumber": 101,
+    "projectNumber": 4,
     "repository": "AI-Assisted-Coding-Training/ai-assisted-training-london-TeamOne",
     "draftLabel": "draft",
     "draftSprintName": "Drafts"
