@@ -27,6 +27,8 @@ Both commands must succeed, and Copilot Chat must reply to `Hello`.
 
 | Path | Contents |
 |---|---|
+| `index.html` | Static informational page about planning poker (plain HTML, no functionality) |
+| `.github/workflows/` | GitHub Actions workflows; `deploy-pages.yml` deploys the site to GitHub Pages on push to `main` |
 | `docs/` | Project documentation, including the [API contract](docs/api-contract.md) |
 | `tools/` | Developer tooling |
 
