@@ -6,7 +6,7 @@ Planning Poker: a web application for agile estimation. Team members join a shar
 
 ## Architecture
 
-- **Frontend** — this repository. A static web application deployed to GitHub Pages.
+- **Frontend** — this repository. A static web application deployed to GitHub Pages. The app is plain HTML, CSS and ES modules with no build step. Pure logic lives in `app/src/logic.js` and is unit-tested with Node's built-in `node:test` (`npm test`).
 - **Backend** — an existing service, maintained separately. The frontend talks to it over WebSocket as described in [docs/api-contract.md](docs/api-contract.md).
 
 ## Guidelines
@@ -21,6 +21,9 @@ Planning Poker: a web application for agile estimation. Team members join a shar
 | Path | Contents |
 |---|---|
 | `index.html` | Static informational page about planning poker (plain HTML, no functionality) |
-| `.github/workflows/` | GitHub Actions workflows; `deploy-pages.yml` deploys the site to GitHub Pages on push to `main` |
+| `app/` | The Planning Poker application: `index.html`, `styles.css`, and `src/` (`main.js` controller, `logic.js` pure logic, `socket.js` WebSocket wrapper, `fireworks.js` celebration) |
+| `tests/` | Unit tests for `app/src/logic.js` (`logic.test.js`) |
+| `package.json` | Node project file (ES modules; `npm test` runs the tests) |
+| `.github/workflows/` | GitHub Actions workflows; `deploy-pages.yml` deploys `index.html` and `app/` to GitHub Pages on push to `main` |
 | `docs/` | Project documentation, including the API contract |
 | `tools/` | Developer tooling |

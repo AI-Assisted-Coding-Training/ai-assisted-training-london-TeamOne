@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Planning Poker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <h1>Planning Poker</h1>
+      <p class="hint">Vote in private, then reveal together.</p>
+    </header>
+
+    <main id="main">
+      <section id="join-view" aria-labelledby="join-heading" hidden>
+        <h2 id="join-heading">Join the room</h2>
+
+        <div class="field">
+          <label for="room-link">Share this room link</label>
+          <div class="row">
+            <input id="room-link" type="text" readonly />
+            <button type="button" id="copy-link">Copy link</button>
+          </div>
+          <p id="join-status" class="hint" role="status"></p>
+        </div>
+
+        <form id="join-form" novalidate>
+          <div class="field">
+            <label for="name">Display name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              autocomplete="nickname"
+              aria-describedby="name-hint name-error"
+              required
+            />
+            <p id="name-hint" class="hint">1 to 32 characters.</p>
+            <p id="name-error" class="field-error"></p>
+          </div>
+
+          <fieldset class="field">
+            <legend>Role</legend>
+            <label><input type="radio" name="role" value="participant" checked /> Participant (votes)</label>
+            <label><input type="radio" name="role" value="DM" /> DM (observes)</label>
+            <label><input type="radio" name="role" value="PM" /> PM (observes)</label>
+          </fieldset>
+
+          <div class="field">
+            <label><input type="checkbox" id="observers-free" /> Observers do not count toward the 15 member limit</label>
+            <p class="hint">Only the first person to join a room sets this.</p>
+          </div>
+
+          <button type="submit" id="submit-join">Join room</button>
+          <p id="join-error" class="alert" role="alert"></p>
+        </form>
+      </section>
+
+      <section id="room-view" aria-labelledby="room-heading" hidden>
+        <div class="room-header">
+          <h2 id="room-heading">Room <span id="room-id"></span></h2>
+          <button type="button" id="admin-toggle" aria-controls="admin" aria-expanded="false" hidden>Admin</button>
+        </div>
+
+        <div id="reconnect" class="banner" hidden>
+          <p>Disconnected from the room. Your vote is no longer counted.</p>
+          <button type="button" id="rejoin">Rejoin as a new participant</button>
+        </div>
+
+        <p id="status" class="status" role="status"></p>
+        <p id="alerts" class="alert" role="alert"></p>
+
+        <section aria-labelledby="roster-heading">
+          <h3 id="roster-heading">Team</h3>
+          <ul id="roster" class="roster"></ul>
+        </section>
+
+        <section aria-labelledby="cards-heading">
+          <h3 id="cards-heading">Your estimate</h3>
+          <div id="cards" class="cards" role="group" aria-label="Estimate cards"></div>
+          <p id="my-role" class="hint"></p>
+        </section>
+
+        <div class="controls">
+          <button type="button" id="reveal" aria-describedby="reveal-hint" hidden>Reveal votes</button>
+          <button type="button" id="reset" hidden>Reset round</button>
+          <p id="reveal-hint" class="hint"></p>
+        </div>
+
+        <section id="outlier-banner" class="banner" aria-label="Estimates to explain" hidden>
+          <p id="outlier-text"></p>
+          <button type="button" id="outlier-dismiss">Dismiss</button>
+        </section>
+
+        <section id="results" aria-labelledby="results-heading" hidden>
+          <h3 id="results-heading">Revealed votes</h3>
+          <ul id="results-list" class="results"></ul>
+        </section>
+
+        <section id="agreement" class="agreement" aria-label="Team agreement" hidden>
+          <p id="agreement-text"></p>
+          <button type="button" id="agreement-dismiss">Dismiss</button>
+        </section>
+
+        <canvas id="fireworks" aria-hidden="true" hidden></canvas>
+
+        <section id="admin" aria-labelledby="admin-heading" hidden>
+          <h3 id="admin-heading">Admin</h3>
+          <p id="admin-count"></p>
+          <p id="admin-setting" class="hint"></p>
+          <ul id="admin-list"></ul>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>

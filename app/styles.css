@@ -1,0 +1,300 @@
+:root {
+  --pitch: #14532d;
+  --pitch-dark: #0b3d1f;
+  --chalk: #ffffff;
+  --gold: #facc15;
+  --ink: #111827;
+  --muted: #d1fae5;
+  --error: #fecaca;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.5;
+  color: var(--chalk);
+  background: radial-gradient(circle at 50% 0, #1f7a3f, transparent 60%), var(--pitch-dark);
+  min-height: 100vh;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  background: var(--gold);
+  color: var(--ink);
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+}
+
+.site-header {
+  text-align: center;
+  padding: 1.5rem 1rem 0.5rem;
+  border-bottom: 3px solid var(--chalk);
+  margin: 0 1rem;
+}
+
+.site-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.4rem;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0.25rem 0;
+}
+
+.field {
+  margin-bottom: 1rem;
+  border: 0;
+  padding: 0;
+}
+
+.field label,
+legend {
+  font-weight: 600;
+}
+
+.field-error,
+.alert {
+  color: var(--error);
+  font-weight: 600;
+  min-height: 1.2em;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border: 2px solid var(--chalk);
+  border-radius: 0.4rem;
+  font: inherit;
+  color: var(--ink);
+  background: var(--chalk);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  accent-color: var(--gold);
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+fieldset label {
+  display: block;
+  margin: 0.25rem 0;
+}
+
+.row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.row input {
+  flex: 1 1 14rem;
+}
+
+button {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+  border: 2px solid var(--chalk);
+  border-radius: 0.4rem;
+  background: var(--gold);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #6b7280;
+  color: #f9fafb;
+  border-color: #6b7280;
+  cursor: not-allowed;
+}
+
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px var(--pitch-dark);
+}
+
+.room-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.status {
+  min-height: 1.5em;
+  font-weight: 600;
+}
+
+.roster {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.member {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.5rem;
+  padding: 0.4rem 0.6rem;
+  margin-bottom: 0.3rem;
+  border-radius: 0.4rem;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.member-status {
+  font-weight: 600;
+}
+
+.badge {
+  display: inline-block;
+  border: 1px solid var(--chalk);
+  border-radius: 999px;
+  padding: 0 0.5rem;
+  margin-left: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.card {
+  min-width: 3.25rem;
+  min-height: 3.25rem;
+  font-size: 1.25rem;
+  background: var(--chalk);
+  color: var(--ink);
+  border-color: var(--pitch-dark);
+}
+
+.card[aria-pressed="true"] {
+  background: var(--gold);
+  box-shadow: inset 0 0 0 3px var(--pitch-dark);
+}
+
+.card.selected::after {
+  content: " \2713";
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.controls .hint {
+  flex-basis: 100%;
+}
+
+.banner,
+.agreement {
+  border: 2px solid var(--gold);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.agreement p {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.results {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.result {
+  padding: 0.3rem 0;
+}
+
+.result.outlier {
+  font-weight: 700;
+}
+
+#results:not([hidden]) .result {
+  animation: reveal-in 0.4s ease-out both;
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+#fireworks {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+#admin {
+  border-top: 2px solid var(--chalk);
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
